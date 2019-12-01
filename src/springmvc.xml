@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!--    扫描注解-->
+    <context:component-scan base-package="wz.controller"/>
+    <!--    注解驱动-->
+    <mvc:annotation-driven/>
+    <!--    静态资源-->
+    <!--    mapping:url请求-->
+    <!--    location:位置-->
+
+    <!--
+    org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping;
+    org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter;
+     -->
+
+    <!-- 资源映射 -->
+    <!--    <mvc:resources mapping="/bootstrap-3.3.7-dist/css/" location="/bootstrap-3.3.7-dist/css/"/>-->
+    <!--    <mvc:resources mapping="/bootstrap-3.3.7-dist/js/" location="/bootstrap-3.3.7-dist/js/"/>-->
+
+    <!-- 放过静态资源 -->
+    <mvc:default-servlet-handler/>
+
+    <!--    视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="viewResolver">
+        <property name="prefix" value=""/>
+        <property name="suffix" value=""/>
+    </bean>
+
+
+</beans>
