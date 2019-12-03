@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wz.mapper.SingersMapper">
+    <select id="selByName" parameterType="string" resultMap="mymap">
+        select * from singers
+        <where>
+            <if test="#{name} != null">
+                and name like "%"#{name}"%"
+            </if>
+        </where>
+    </select>
+
+    <resultMap id="mymap" type="wz.pojo.Singers">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <collection property="songsList" select="wz.mapper.SongsMapper.selBySid" column="id"/>
+    </resultMap>
+
+    <select id="selAll" resultMap="mymap" >
+        select * from singers;
+    </select>
+
+</mapper>

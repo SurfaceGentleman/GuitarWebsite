@@ -18,7 +18,7 @@
 
     <!--    数据源封装  -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="url" value="jdbc:mysql://localhost:3306/ssm?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=GMT%2B8&amp;useSSL=false"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/guitar?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=GMT%2B8&amp;useSSL=false"/>
         <property name="username" value="root"/>
         <property name="password" value="1226568176"/>
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>

@@ -43,13 +43,13 @@
 
 </div>
 
-<nav class="navbar navbar-default " role="navigation">
+<nav class="navbar navbar-default" role="navigation">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse"
                 data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle
-                    navigation
-                </span>
+                    <span class="sr-only">Toggle
+                        navigation
+                    </span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -60,10 +60,10 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
             <li>
-                <a href="#"><span class="text-danger">热门曲谱</span></a>
+                <a href="#">Link</a>
             </li>
             <li>
-                <a href="#" class="text-danger"><span class="text-primary">热门歌手</span></a>
+                <a href="#">Link</a>
             </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong
@@ -91,9 +91,9 @@
                 </ul>
             </li>
         </ul>
-        <form class="navbar-form navbar-left" role="search">
+        <form class="navbar-form navbar-left" role="search" action="serach" method="post">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="请输入歌手名或歌曲名" />
+                <input type="text" name="str" class="form-control" />
             </div>
             <button type="submit" class="btn btn-default">搜索</button>
         </form>
@@ -105,7 +105,8 @@
             </li>
 
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于我<strong class="caret"></strong></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于我<strong
+                        class="caret"></strong></a>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="#"><span class="text-primary">进入站长的全民k歌</span></a>

@@ -49,9 +49,9 @@
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse"
                 data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle
-                    navigation
-                </span>
+                    <span class="sr-only">Toggle
+                        navigation
+                    </span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -93,7 +93,7 @@
                 </ul>
             </li>
         </ul>
-        <form class="navbar-form navbar-left" role="search">
+        <form class="navbar-form navbar-left" role="search" action="serach" method="get">
             <div class="form-group">
                 <input type="text" class="form-control"/>
             </div>
@@ -107,7 +107,8 @@
             </li>
 
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于我<strong class="caret"></strong></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于我<strong
+                        class="caret"></strong></a>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="#"><span class="text-primary">进入站长的全民k歌</span></a>
@@ -133,12 +134,11 @@
 <div class="container">
     <div class="row">
 
-
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <div class="col-xs-0 col-sm-4 col-md-4 col-lg-4">
 
         </div>
 
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="form-group">
                 <div style="padding: 30px 30px 10px;">
                     <form class="bs-example bs-example-form" role="form" method="post" action="/login">
