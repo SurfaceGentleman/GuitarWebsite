@@ -45,9 +45,9 @@
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse"
                 data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle
-                    navigation
-                </span>
+                    <span class="sr-only">Toggle
+                        navigation
+                    </span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -89,9 +89,9 @@
                 </ul>
             </li>
         </ul>
-        <form class="navbar-form navbar-left" role="search">
+        <form class="navbar-form navbar-left" role="search" action="serach" method="post">
             <div class="form-group">
-                <input type="text" class="form-control"/>
+                <input type="text" name="str" class="form-control" placeholder="请输入歌曲名或歌手名"/>
             </div>
             <button type="submit" class="btn btn-default">搜索</button>
         </form>
@@ -103,7 +103,8 @@
             </li>
 
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于我<strong class="caret"></strong></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于我<strong
+                        class="caret"></strong></a>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="#"><span class="text-primary">进入站长的全民k歌</span></a>

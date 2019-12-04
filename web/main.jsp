@@ -16,6 +16,13 @@
     <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="bootstrap-3.3.7-dist/js/jQuery.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#myCarousel").carousel({
+                interval: 2000
+            });
+        })
+    </script>
     <style type="text/css">
         #myCarousel .carousel-inner>.item>img {
             display: block;
@@ -93,7 +100,7 @@
         </ul>
         <form class="navbar-form navbar-left" role="search" action="serach" method="post">
             <div class="form-group">
-                <input type="text" name="str" class="form-control" />
+                <input type="text" name="str" class="form-control" placeholder="请输入歌曲名或歌手名"/>
             </div>
             <button type="submit" class="btn btn-default">搜索</button>
         </form>
