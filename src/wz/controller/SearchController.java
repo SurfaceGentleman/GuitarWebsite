@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import wz.mapper.SingersMapper;
 import wz.mapper.SongsMapper;
 import wz.pojo.Singers;
@@ -21,15 +22,14 @@ public class SearchController {
     @Resource
     private SongsMapper songsMapper;
 
-    @RequestMapping("serach")
+    @RequestMapping("/search")
     @ResponseBody
     public Object serach(String str, HttpServletRequest request, HttpServletResponse response) {
+        
+        String searchStr = str;
+        request.setAttribute("str", searchStr);
+        System.out.println("search处的str：" + searchStr);
 
-        String searchStr = (String) request.getAttribute("str");
-        System.out.println(searchStr);
-        if (null == searchStr){
-            searchStr = "";
-        }
         List<Songs> songsList = songsMapper.selByName(searchStr);
         List<Singers> singersList = singersMapper.selByName(searchStr);
         System.out.println(songsList);
@@ -41,4 +41,17 @@ public class SearchController {
         System.out.println(jsonObject);
         return jsonObject;
     }
+
+    @RequestMapping("/result")
+    public String result(String str, HttpServletRequest request, HttpServletResponse response) {
+        String searchStr = (String) request.getParameter("str");
+        System.out.println(searchStr);
+        if (null == searchStr) {
+            searchStr = "";
+        }
+        System.out.println(searchStr);
+        request.setAttribute("str", searchStr);
+        return "result.jsp";
+    }
+
 }

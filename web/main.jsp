@@ -98,7 +98,7 @@
                 </ul>
             </li>
         </ul>
-        <form class="navbar-form navbar-left" role="search" action="serach" method="post">
+        <form class="navbar-form navbar-left" role="search" action="/result" method="post">
             <div class="form-group">
                 <input type="text" name="str" class="form-control" placeholder="请输入歌曲名或歌手名"/>
             </div>

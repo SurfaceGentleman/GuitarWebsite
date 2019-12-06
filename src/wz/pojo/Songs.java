@@ -5,6 +5,10 @@ public class Songs {
     private String name;
     private String path;
     private int sid;
+    private int number;
+    private String sname;
+
+
 
     public Songs() {
     }
@@ -16,7 +20,25 @@ public class Songs {
                 ", name='" + name + '\'' +
                 ", path='" + path + '\'' +
                 ", sid=" + sid +
+                ", number=" + number +
+                ", sname='" + sname + '\'' +
                 '}';
+    }
+
+    public String getSname() {
+        return sname;
+    }
+
+    public void setSname(String sname) {
+        this.sname = sname;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public int getId() {

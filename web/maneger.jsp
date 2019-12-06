@@ -277,6 +277,7 @@
                         <input type="text" class="form-control" id=""/>
                     </div>
                 </div>
+
                 <div id="pages_div">
                     <p class="help-block">
                         吉他谱页数

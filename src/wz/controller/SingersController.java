@@ -14,7 +14,10 @@ public class SingersController {
 
     @RequestMapping("singers")
     @ResponseBody
-    public void search(){
+    public void search() {
         System.out.println(singersService.show());
     }
+
+
+
 }
