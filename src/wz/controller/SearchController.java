@@ -1,6 +1,7 @@
 package wz.controller;
 
 import org.json.JSONObject;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -40,6 +41,7 @@ public class SearchController {
         jsonObject.put("singers", singersList);
         System.out.println(jsonObject);
         return jsonObject;
+
     }
 
     @RequestMapping("/result")
@@ -52,6 +54,15 @@ public class SearchController {
         System.out.println(searchStr);
         request.setAttribute("str", searchStr);
         return "result.jsp";
+    }
+
+    @RequestMapping("hot")
+    @ResponseBody
+    public Object hot(){
+        Map<String, Object> json = new HashMap<>();
+        json.put("songs", songsMapper.selHot());
+        return json;
+        //songsMapper.selHot();
     }
 
 }

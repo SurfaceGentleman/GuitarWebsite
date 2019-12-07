@@ -6,13 +6,13 @@
 
 
     <select id="selBySid" parameterType="int" resultType="wz.pojo.Songs">
-        select s.id id, s.name name, s.path path, singers.name sname from songs s
+        select s.id id, s.name name, s.format format, singers.name sname, s.number number from songs s
         left join singers on s.sid = singers.id
         where sid=#{0}
     </select>
 
     <select id="selByName" parameterType="string" resultType="wz.pojo.Songs">
-        select s.id id, s.name name, s.path path, singers.name sname from songs s
+        select s.id id, s.name name, s.format format, singers.name sname, s.number number from songs s
         left join singers on s.sid = singers.id
         <where>
             <if test="#{name} != null">
@@ -22,7 +22,7 @@
     </select>
 
     <insert id="insSong" parameterType="wz.pojo.Songs">
-        insert into songs values (default, #{name}, #{path}, #{sid})
+--         insert into songs values (default, #{name}, #{path}, #{sid})
     </insert>
 
 

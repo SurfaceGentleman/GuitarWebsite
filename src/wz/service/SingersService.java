@@ -9,11 +9,8 @@ import java.util.List;
 
 @Service
 public class SingersService {
+
     @Resource
     private SingersMapper singersMapper;
-
-    public List<Singers> show(){
-        return singersMapper.selByName("赵");
-    }
 
 }

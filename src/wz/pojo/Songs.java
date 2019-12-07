@@ -1,9 +1,10 @@
 package wz.pojo;
 
 public class Songs {
+
     private int id;
     private String name;
-    private String path;
+    private String format;
     private int sid;
     private int number;
     private String sname;
@@ -13,16 +14,12 @@ public class Songs {
     public Songs() {
     }
 
-    @Override
-    public String toString() {
-        return "Songs{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", path='" + path + '\'' +
-                ", sid=" + sid +
-                ", number=" + number +
-                ", sname='" + sname + '\'' +
-                '}';
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
     }
 
     public String getSname() {
@@ -55,14 +52,6 @@ public class Songs {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
     }
 
     public int getSid() {

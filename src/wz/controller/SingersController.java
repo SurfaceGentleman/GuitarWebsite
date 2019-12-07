@@ -9,14 +9,9 @@ import javax.annotation.Resource;
 
 @Controller
 public class SingersController {
+
     @Resource
     private SingersService singersService;
-
-    @RequestMapping("singers")
-    @ResponseBody
-    public void search() {
-        System.out.println(singersService.show());
-    }
 
 
 

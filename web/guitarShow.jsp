@@ -16,6 +16,18 @@
     <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="bootstrap-3.3.7-dist/js/jQuery.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            var page_number = '<%=request.getAttribute("pages")%>';
+            page_number = parseInt(page_number);
+            for (var i = 1; i <= page_number; i++) {
+                var path = "/songs/<%=request.getAttribute("id")%>/music/<%=request.getAttribute("id")%>_" + i + ".<%=request.getAttribute("format")%>";
+                $("#pages").append("<img class='img-responsive' src=" + path + ">");
+            }
+
+        })
+    </script>
 </head>
 
 <body>
@@ -129,12 +141,13 @@
 <div class="row">
 
 
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+    <div class="col-xs-0 col-sm-2 col-md-2 col-lg-2">
 
     </div>
-    
-    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-        <img src="images/others/152610ckbv8k4y4kjgvyy1.jpg" class="img-responsive" alt="Image">
+
+    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" id="pages">
+        <%--        <img src="/songs/<%=request.getAttribute("path")%>/<%=request.getAttribute("path")%>1.jpg" class="img-responsive" alt="Image">--%>
+        <%--    </div>--%>
     </div>
 
 

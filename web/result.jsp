@@ -21,7 +21,7 @@
             $.ajax({
                 //
                 url: "/search",
-                data: {str:'<%=request.getAttribute("str")%>'},
+                data: {str: '<%=request.getAttribute("str")%>'},
                 type: "post",
 
                 dataType: "json",
@@ -29,10 +29,10 @@
                 success: function (data) {
                     for (var i = 0; i < data["songs"].length; i++) {
                         var songs_name = "<td class='text-danger'>" + data["songs"][i]["name"] + "</td>";
-                        var songs_path = "<td>" + data["songs"][i]["sname"] + "</td>";
-                        var songs_view = "<td><a class='btn btn-primary' href=\'" + data["songs"][i]["path"] + "\'>查看</a>" + "</td>";
+                        var songs_sname = "<td>" + data["songs"][i]["sname"] + "</td>";
+                        var songs_view = "<td><a class='btn btn-primary' href=/page?id=" + data["songs"][i]["id"] + "&pages=" + data['songs'][i]['number'] + "&format=" + data['songs'][i]['format'] + ">查看</a>" + "</td>";
                         var songs_download = "<td><a class='btn btn-success'>下载</a></td>";
-                        $("#songs").append("<tr>" + songs_name + songs_path + songs_view + songs_download + "</td>");
+                        $("#songs").append("<tr>" + songs_name + songs_sname + songs_view + songs_download + "</td>");
                     }
 
                     for (var i = 0; i < data["singers"].length; i++) {
@@ -108,7 +108,6 @@
         </table>
     </div>
 </div>
-
 </body>
 
 </html>

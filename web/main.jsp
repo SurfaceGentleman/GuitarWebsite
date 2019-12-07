@@ -18,9 +18,49 @@
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function () {
+
             $("#myCarousel").carousel({
                 interval: 2000
             });
+
+            $("#call").click(function () {
+                alert("请先在首页绕过前端！");
+                return false;
+            })
+
+            $.ajax({
+                //
+                url: "/hot",
+                data: {},
+                type: "post",
+
+                dataType: "json",
+
+                success: function (data) {
+                    for (var i = 0; i < data["songs"].length; i++) {
+                        var songs_name = "<td class='text-danger'>" + data["songs"][i]["name"] + "</td>";
+                        var songs_sname = "<td>" + data["songs"][i]["sname"] + "</td>";
+                        var songs_view = "<td><a class='btn btn-primary' href=/page?id=" + data["songs"][i]["id"] + "&pages=" + data['songs'][i]['number'] + "&format=" + data['songs'][i]['format'] + ">查看</a>" + "</td>";
+                        var songs_download = "<td><a class='btn btn-success'>下载</a></td>";
+                        $("#songs").append("<tr>" + songs_name + songs_sname + songs_view + songs_download + "</td>");
+                    }
+
+                    for (var i = 0; i < data["singers"].length; i++) {
+                        var singers_name = "<button class='btn btn-success'>" + data["singers"][i]["name"] + "</button>";
+                        $("#singers").append(singers_name);
+                    }
+
+                },
+
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    document.write("error");
+                    document.write(XMLHttpRequest.status);
+                    document.write(XMLHttpRequest.readyState);
+                    document.write(textStatus);
+                }
+
+            })
+
         })
     </script>
     <style type="text/css">
@@ -36,15 +76,15 @@
 
 
 <div class="row">
-    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+    <div class="col-xs-0 col-sm-1 col-md-1 col-lg-1">
     </div>
-    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+    <div class="col-xs-2 col-sm-3 col-md-3 col-lg-3">
         <img src="images/icons/guitar.jpeg" class="img-circle" alt="吉他图标" height="70px" width="70px">
     </div>
     <div class="">
 
     </div>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 pull-right">
+    <div class="col-xs-0 col-sm-2 col-md-2 col-lg-2 pull-right">
         <h2 class=" text-warning">wz.com</h2>
     </div>
 
@@ -119,7 +159,7 @@
                         <a href="#"><span class="text-primary">进入站长的全民k歌</span></a>
                     </li>
                     <li>
-                        <a href="#"><span class="text-primary">联系站长</span></a>
+                        <a href="#" id="call"><span class="text-primary">联系站长</span></a>
                     </li>
                     <li>
                         <a href="#"><span class="text-primary">站长单身，但不谈对象，性取向正常，仍在奋斗中</span></a>
@@ -141,7 +181,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <div id="myCarousel" class="carousel slide">
                 <!-- 轮播（Carousel）指标 -->
                 <ol class="carousel-indicators">
@@ -177,7 +217,7 @@
 
 
 
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 
             <div class="well">
                 <h2 class="text-success">关于本站</h2>
@@ -212,7 +252,7 @@
 
     <div class="row">
         <div class="col-sm-6 col-md-2">
-            <div href="#" class="thumbnail">
+            <div class="thumbnail">
                 <img src="images/songs/家乡.jpg" class="img-circle" alt="通用的占位符缩略图">
                 <div class="caption">
                     <h3>家乡</h3>
