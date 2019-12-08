@@ -13,4 +13,6 @@ public interface SingersMapper {
     //模糊查询
     List<Singers> selByName(@Param("name") String name);
 
+    @Select("select * from singers limit 13")
+    List<Singers> selHot();
 }

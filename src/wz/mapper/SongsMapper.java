@@ -13,7 +13,7 @@ public interface SongsMapper {
 
     List<Songs> selByName(@Param("name") String name);
 
-    @Select("select * from songs limit 7")
+    @Select("select s.id id, s.name name, s.format format, singers.name sname, s.number number from songs s left join singers on s.sid = singers.id limit 13")
     List<Songs> selHot();
 
 }

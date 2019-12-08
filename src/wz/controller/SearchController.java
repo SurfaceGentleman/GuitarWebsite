@@ -56,11 +56,12 @@ public class SearchController {
         return "result.jsp";
     }
 
-    @RequestMapping("hot")
+    @RequestMapping("/hot")
     @ResponseBody
     public Object hot(){
         Map<String, Object> json = new HashMap<>();
         json.put("songs", songsMapper.selHot());
+        json.put("singers", singersMapper.selHot());
         return json;
         //songsMapper.selHot();
     }

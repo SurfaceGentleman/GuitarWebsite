@@ -37,23 +37,29 @@
                 dataType: "json",
 
                 success: function (data) {
+
                     for (var i = 0; i < data["songs"].length; i++) {
-                        var songs_name = "<td class='text-danger'>" + data["songs"][i]["name"] + "</td>";
-                        var songs_sname = "<td>" + data["songs"][i]["sname"] + "</td>";
-                        var songs_view = "<td><a class='btn btn-primary' href=/page?id=" + data["songs"][i]["id"] + "&pages=" + data['songs'][i]['number'] + "&format=" + data['songs'][i]['format'] + ">查看</a>" + "</td>";
-                        var songs_download = "<td><a class='btn btn-success'>下载</a></td>";
-                        $("#songs").append("<tr>" + songs_name + songs_sname + songs_view + songs_download + "</td>");
+
+                        var songs_name = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'><b>" + data["songs"][i]["name"] + "</b></div>";
+                        var songs_sname = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>" + data["songs"][i]["sname"] + "</div>";
+                        var songs_view = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'><a href=/page?id=" + data["songs"][i]["id"] + "&pages=" + data['songs'][i]['number'] + "&format=" + data['songs'][i]['format'] + ">查看</a>" + "</div>";
+                        var songs_download = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'><a >下载</a></div>";
+                        $("#songs").append("<div class='text-danger'>" + songs_name + songs_sname + songs_view + songs_download + "</div>");
+
                     }
 
                     for (var i = 0; i < data["singers"].length; i++) {
-                        var singers_name = "<button class='btn btn-success'>" + data["singers"][i]["name"] + "</button>";
-                        $("#singers").append(singers_name);
+                        var singers_name = data["singers"][i]["name"];
+                        var singers_id = data["singers"][i]["id"];
+                        var singers_photo = data["singers"][i]["photo"];
+                        var dis_singers = "<div class='col-sm-6 col-md-2'><div class='thumbnail'><img src='/images/singers/" + singers_photo +"' class='img-circle'><div class='caption'><h3>" + singers_name + "</h3><p><a href='' class='btn btn-success'>查看曲谱</a></p></div></div></div>";
+                        $("#singers").append(dis_singers);
                     }
 
                 },
 
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    document.write("error");
+                    alert("网络异常，请检查网络状况");
                     document.write(XMLHttpRequest.status);
                     document.write(XMLHttpRequest.readyState);
                     document.write(textStatus);
@@ -64,7 +70,7 @@
         })
     </script>
     <style type="text/css">
-        #myCarousel .carousel-inner>.item>img {
+        #myCarousel .carousel-inner > .item > img {
             display: block;
             width: 100%;
             height: 270px;
@@ -176,7 +182,7 @@
 </nav>
 
 
-<br />
+<br/>
 
 
 <div class="container">
@@ -214,9 +220,6 @@
         </div>
 
 
-
-
-
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 
             <div class="well">
@@ -237,137 +240,28 @@
 </div>
 
 
-
-
-
-<br />
+<br/>
 
 <div class="container">
 
 
     <div class="row">
-        <h4 class="text-danger">热门曲谱</h4>
+        <h4 class="text-danger">热门歌手</h4>
+
     </div>
 
 
-    <div class="row">
-        <div class="col-sm-6 col-md-2">
-            <div class="thumbnail">
-                <img src="images/songs/家乡.jpg" class="img-circle" alt="通用的占位符缩略图">
-                <div class="caption">
-                    <h3>家乡</h3>
-                    <p>赵雷</p>
-                    <p>
-                        <a href="#" class="btn btn-success" role="button">
-                            查看曲谱
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-2">
-            <div href="#" class="thumbnail">
-                <img src="images/songs/听妈妈的话.jpg" class="img-circle" alt="通用的占位符缩略图">
-                <div class="caption">
-                    <h3>听妈妈的话</h3>
-                    <p>周杰伦</p>
-                    <p>
-                        <a href="#" class="btn btn-success" role="button">
-                            查看曲谱
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-2">
-            <div href="#" class="thumbnail">
-                <img src="images/icons/guitar.jpeg" class="img-circle" alt="通用的占位符缩略图">
-                <div class="caption">
-                    <h3>歌曲名</h3>
-                    <p>歌手名</p>
-                    <p>
-                        <a href="#" class="btn btn-primary" role="button">
-                            按钮
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-2">
-            <div href="#" class="thumbnail">
-                <img src="images/icons/guitar.jpeg" class="img-circle" alt="通用的占位符缩略图">
-                <div class="caption">
-                    <h3>歌曲名</h3>
-                    <p>歌手名</p>
-                    <p>
-                        <a href="#" class="btn btn-primary" role="button">
-                            按钮
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-2">
-            <div href="#" class="thumbnail">
-                <img src="images/icons/guitar.jpeg" class="img-circle" alt="通用的占位符缩略图">
-                <div class="caption">
-                    <h3>歌曲名</h3>
-                    <p>歌手名</p>
-                    <p>
-                        <a href="#" class="btn btn-primary" role="button">
-                            按钮
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-2">
-            <div href="#" class="thumbnail">
-                <img src="images/icons/guitar.jpeg" class="img-circle" alt="通用的占位符缩略图">
-                <div class="caption">
-                    <h3>歌曲名</h3>
-                    <p>歌手名</p>
-                    <p>
-                        <a href="#" class="btn btn-primary" role="button">
-                            按钮
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-2">
-            <div href="#" class="thumbnail">
-                <img src="images/icons/guitar.jpeg" class="img-circle" alt="通用的占位符缩略图">
-                <div class="caption">
-                    <h3>歌曲名</h3>
-                    <p>歌手名</p>
-                    <p>
-                        <a href="#" class="btn btn-primary" role="button">
-                            按钮
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-2">
-            <div href="#" class="thumbnail">
-                <img src="images/icons/guitar.jpeg" class="img-circle" alt="通用的占位符缩略图">
-                <div class="caption">
-                    <h3>歌曲名</h3>
-                    <p>歌手名</p>
-                    <p>
-                        <a href="#" class="btn btn-primary" role="button">
-                            按钮
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
+    <div class="row" id="singers">
+
+    </div>
+
+    <div class="row" id="songs">
+        <h4 class="text-success">热门曲谱</h4>
+        <hr/>
 
     </div>
 
 </div>
-
 
 
 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-lg-offset-4  navbar-fixed-bottom">
@@ -386,6 +280,7 @@
 
 </div>
 
+<br/>
 <div class="row bg-primary">
     <h4 class="text-center">Powered by:<span>SurfaceGentleman</span> All Rights Reserved</h4>
 </div>
