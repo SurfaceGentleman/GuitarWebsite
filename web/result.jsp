@@ -36,8 +36,9 @@
                     }
 
                     for (var i = 0; i < data["singers"].length; i++) {
-                        var singers_name = "<button class='btn btn-success'>" + data["singers"][i]["name"] + "</button>";
-                        $("#singers").append(singers_name);
+                        var singers_id = data["singers"][i]["id"];
+                        var singers = "<a class='btn btn-success' href='singer_song?id=" + singers_id + "'>" + data["singers"][i]["name"] + "</a>";
+                        $("#singers").append(singers);
                     }
                     // alert(data["songs"].length);
                     // $("#songs_text").text(data["songs"].length);
@@ -45,10 +46,14 @@
                     if (parseInt(data["songs"].length) == 0) {
                         $("#songs_text").text("曲谱（无结果）");
                         $("#songs_text").addClass("text-danger");
+                        $("#songs_text").siblings().remove();
+                        $("#songs_text").remove();
                     }
                     if (parseInt(data["singers"].length) == 0) {
                         $("#singer_text").text("歌手（无结果）");
                         $("#singer_text").addClass("text-danger");
+                        $("#singer_text").siblings().remove();
+                        $("#singer_text").remove();
                     }
 
                 },

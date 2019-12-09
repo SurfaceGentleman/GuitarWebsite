@@ -28,6 +28,7 @@
                 return false;
             })
 
+            //处理主页相关数据
             $.ajax({
                 //
                 url: "/hot",
@@ -41,7 +42,7 @@
                     for (var i = 0; i < data["songs"].length; i++) {
 
                         var songs_name = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'><b>" + data["songs"][i]["name"] + "</b></div>";
-                        var songs_sname = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>" + data["songs"][i]["sname"] + "</div>";
+                        var songs_sname = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>" + "<a href='singer_song?id=" + data["songs"][i]["id"] + "'>"  + data["songs"][i]["sname"] + "</a>" + "</div>";
                         var songs_view = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'><a href=/page?id=" + data["songs"][i]["id"] + "&pages=" + data['songs'][i]['number'] + "&format=" + data['songs'][i]['format'] + ">查看</a>" + "</div>";
                         var songs_download = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'><a >下载</a></div>";
                         $("#songs").append("<div class='text-danger'>" + songs_name + songs_sname + songs_view + songs_download + "</div>");
@@ -52,7 +53,7 @@
                         var singers_name = data["singers"][i]["name"];
                         var singers_id = data["singers"][i]["id"];
                         var singers_photo = data["singers"][i]["photo"];
-                        var dis_singers = "<div class='col-sm-6 col-md-2'><div class='thumbnail'><img src='/images/singers/" + singers_photo +"' class='img-circle'><div class='caption'><h3>" + singers_name + "</h3><p><a href='' class='btn btn-success'>查看曲谱</a></p></div></div></div>";
+                        var dis_singers = "<div class='col-sm-6 col-md-2'><div class='thumbnail'><img src='/images/singers/" + singers_photo + "' class='img-circle'><div class='caption'><h3>" + singers_name + "</h3><p><a href=singer_song?id=" + singers_id + " class='btn btn-success'>查看曲谱</a></p></div></div></div>";
                         $("#singers").append(dis_singers);
                     }
 
@@ -113,10 +114,10 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
             <li>
-                <a href="#">Link</a>
+                <a href="#">施工中</a>
             </li>
             <li>
-                <a href="#">Link</a>
+                <a href="#">施工中</a>
             </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong
