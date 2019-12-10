@@ -206,6 +206,9 @@
                 <p class="text-warning">
                     目前用户相关功能仍处于测试阶段，请直接点击下方按钮，进入首页即可！
                 </p>
+                <p class="text-info">
+                    即将上线的功能：用户注册/登录功能，曲谱收藏功能，留言板功能，评论区功能
+                </p>
                 <p>
                     <a class="btn btn-success btn-large" href="/main.jsp">进入首页</a>
                 </p>

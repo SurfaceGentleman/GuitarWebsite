@@ -20,6 +20,48 @@
 
     <script>
         $(document).ready(function name(params) {
+            $.ajax({
+                //
+                url: "/all",
+                data: {},
+                type: "post",
+
+                dataType: "json",
+
+                success: function (data) {
+
+                    for (var i = 0; i < data["songs"].length; i++) {
+
+                        var songs_name = "<td>" + data["songs"][i]["name"] + "</td>";
+                        var songs_id = "<td>" + data["songs"][i]["id"] + "</td>";
+                        var songs_sid = "<td>" + data["songs"][i]["sid"] + "</td>";
+                        var songs_number = "<td>" + data["songs"][i]["number"] + "</td>";
+                        var songs_del = "<td><a class='btn btn-danger' href=/del_song?id=" + data["songs"][i]["id"] + ">删除</a>" + "</td>";
+                        var songs_format = "<td>" + data["songs"][i]["format"] + "</td>";
+                        var songs_change = "<td><a class='btn btn-info' href=/change_song?id=" + data["songs"][i]["id"] + ">修改</a>" + "</td>";
+                        $("#songs").append("<tr>" + songs_id + songs_name + songs_sid + songs_number + songs_format + songs_del + songs_change + "</tr>");
+
+                    }
+
+                    for (var i = 0; i < data["singers"].length; i++) {
+                        var singers_name = "<td>" + data["singers"][i]["name"] + "</td>";
+                        var singers_id = "<td>" + data["singers"][i]["id"] + "</td>";
+                        var singers_photo = "<td>" + data["singers"][i]["photo"] + "</td>";
+                        var singers_del = "<td><a class='btn btn-danger' href=/del_singer?id=" + data["singers"][i]["id"] + ">删除</a>" + "</td>";
+                        var singers_change = "<td><a class='btn btn-info' href=/change_singer?id=" + data["singers"][i]["id"] + ">修改</a>" + "</td>";
+                        $("#singers").append("<tr>" + singers_id + singers_name + singers_photo + singers_del + singers_change + "<tr/>");
+                    }
+
+                },
+
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("网络异常，请检查网络状况");
+                    document.write(XMLHttpRequest.status);
+                    document.write(XMLHttpRequest.readyState);
+                    document.write(textStatus);
+                }
+            })
+
             $("#user").click(function () {
                 $(this).addClass("bg-success");
                 $("#music").removeClass("bg-success");
@@ -95,6 +137,11 @@
     <li id="user">
         <a href="#"><span class="text-success glyphicon glyphicon-user">用户管理</span>
             <span class="badge">user</span>
+        </a>
+    </li>
+    <li id="singer">
+        <a href="#"><span class="text-warning glyphicon glyphicon-user">歌手管理</span>
+            <span class="badge">singer</span>
         </a>
     </li>
 </ul>
@@ -310,32 +357,55 @@
     </div>
 </div>
 
+<div class="container">
+    <h3 class="text-success">音乐信息</h3>
+</div>
 
 <div class="container">
-    <div id="del_music_div">
 
-        <div class="col-xs-0 col-sm-3 col-md-3 col-lg-3">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>sid</th>
+            <th>number</th>
+            <th>format</th>
+            <th class="text-danger">删除</th>
+            <th class="text-primary">修改</th>
+        </tr>
+        </thead>
+        <tbody id="songs">
+        </tbody>
+    </table>
 
-        </div>
+</div>
 
 
-        <form>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <h3 class="text-warning">删除音乐</h3>
-                <div class="row">
+<div class="container">
+    <h3 class="text-success">歌手信息</h3>
+</div>
 
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <input type="text" class="form-control" name="del_music" placeholder="请输入您要删除的歌曲id"/>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                        <button type="submit" class="btn btn-danger">提交</button>
-                    </div>
-                    <button class="btn btn-default">展开菜单</button>
-                </div>
-            </div>
-        </form>
 
-    </div>
+<div class="container">
+
+    <table class="table table-hover">
+
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>photo</th>
+            <th class="text-danger">删除</th>
+            <th class="text-primary">修改</th>
+        </tr>
+        </thead>
+
+        <tbody id="singers">
+        </tbody>
+
+    </table>
+
 </div>
 
 

@@ -25,5 +25,8 @@
 --         insert into songs values (default, #{name}, #{path}, #{sid})
     </insert>
 
+    <select id="selByPage" resultType="wz.pojo.Songs">
+        select * from songs limit #{0}, #{1}
+    </select>
 
 </mapper>

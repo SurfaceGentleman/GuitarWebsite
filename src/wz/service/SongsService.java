@@ -2,6 +2,7 @@ package wz.service;
 
 import org.springframework.stereotype.Service;
 import wz.mapper.SongsMapper;
+import wz.pojo.PageInfo;
 import wz.pojo.Songs;
 
 import javax.annotation.Resource;
@@ -24,4 +25,20 @@ public class SongsService {
         return songsMapper.selBySid(id);
     }
 
+    public PageInfo showPage(int pageSize, int pageNumber) {
+        PageInfo pi = new PageInfo();
+        int total = songsMapper.selCount();
+        List<Songs> list = songsMapper.selByPage(pageSize * (pageNumber - 1), pageSize);
+        pi.setPageNumber(pageNumber);
+        pi.setPageSize(pageSize);
+        pi.setList(list);
+        pi.setTotal(total % pageSize == 0 ? total / pageSize : total / pageSize + 1);
+        System.out.println(pi);
+        return pi;
+
+    }
+
+    public int delSong(int id) {
+        return songsMapper.delById(id);
+    }
 }

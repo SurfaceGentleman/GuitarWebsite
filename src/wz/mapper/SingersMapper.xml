@@ -22,4 +22,8 @@
         select * from singers;
     </select>
 
+    <select id="selByPage" resultType="wz.pojo.Singers">
+        select * from singers limit #{0}, #{1}
+    </select>
+
 </mapper>

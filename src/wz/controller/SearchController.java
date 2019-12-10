@@ -1,13 +1,9 @@
 package wz.controller;
 
-import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 import wz.mapper.SingersMapper;
 import wz.mapper.SongsMapper;
 import wz.pojo.Singers;
@@ -82,6 +78,20 @@ public class SearchController {
 
         request.setAttribute("songs", songsList);
         return "result_singer.jsp";
+    }
+
+
+    //选择所有的信息
+    @RequestMapping("/all")
+    @ResponseBody
+    public Object all(HttpServletRequest request, HttpServletResponse response) {
+        List<Songs> songsList = songsMapper.selAll();
+        List<Singers> singersList = singersMapper.selAll();
+        Map<String, Object> map = new HashMap<>();
+        map.put("songs", songsList);
+        map.put("singers", singersList);
+        System.out.println("发送了管理员页面请求");
+        return map;
     }
 
 
