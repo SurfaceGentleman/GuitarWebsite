@@ -5,6 +5,7 @@
   Time: 下午5:40
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 
@@ -22,6 +23,7 @@
 
         })
     </script>
+
 </head>
 
 <body>
@@ -103,6 +105,7 @@
             </form>
 
             <ul class="nav navbar-nav navbar-right">
+
                 <li>
                     <a href="#">Link</a>
                 </li>

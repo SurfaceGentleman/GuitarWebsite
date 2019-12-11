@@ -20,48 +20,6 @@
 
     <script>
         $(document).ready(function name(params) {
-            $.ajax({
-                //
-                url: "/all",
-                data: {},
-                type: "post",
-
-                dataType: "json",
-
-                success: function (data) {
-
-                    for (var i = 0; i < data["songs"].length; i++) {
-
-                        var songs_name = "<td>" + data["songs"][i]["name"] + "</td>";
-                        var songs_id = "<td>" + data["songs"][i]["id"] + "</td>";
-                        var songs_sid = "<td>" + data["songs"][i]["sid"] + "</td>";
-                        var songs_number = "<td>" + data["songs"][i]["number"] + "</td>";
-                        var songs_del = "<td><a class='btn btn-danger' href=/del_song?id=" + data["songs"][i]["id"] + ">删除</a>" + "</td>";
-                        var songs_format = "<td>" + data["songs"][i]["format"] + "</td>";
-                        var songs_change = "<td><a class='btn btn-info' href=/change_song?id=" + data["songs"][i]["id"] + ">修改</a>" + "</td>";
-                        $("#songs").append("<tr>" + songs_id + songs_name + songs_sid + songs_number + songs_format + songs_del + songs_change + "</tr>");
-
-                    }
-
-                    for (var i = 0; i < data["singers"].length; i++) {
-                        var singers_name = "<td>" + data["singers"][i]["name"] + "</td>";
-                        var singers_id = "<td>" + data["singers"][i]["id"] + "</td>";
-                        var singers_photo = "<td>" + data["singers"][i]["photo"] + "</td>";
-                        var singers_del = "<td><a class='btn btn-danger' href=/del_singer?id=" + data["singers"][i]["id"] + ">删除</a>" + "</td>";
-                        var singers_change = "<td><a class='btn btn-info' href=/change_singer?id=" + data["singers"][i]["id"] + ">修改</a>" + "</td>";
-                        $("#singers").append("<tr>" + singers_id + singers_name + singers_photo + singers_del + singers_change + "<tr/>");
-                    }
-
-                },
-
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("网络异常，请检查网络状况");
-                    document.write(XMLHttpRequest.status);
-                    document.write(XMLHttpRequest.readyState);
-                    document.write(textStatus);
-                }
-            })
-
             $("#user").click(function () {
                 $(this).addClass("bg-success");
                 $("#music").removeClass("bg-success");
@@ -102,11 +60,11 @@
                 //清除所有的input_file
                 $("input[type='file']").remove();
 
-                for (var i = pages; i >= 1; i--) {
-                    var inputs = "<input type='file' id='page" + i + '\'' + ">";
+                for (var i = 1; i <= pages; i++) {
+                    var inputs = "<input type='file' name='file'>";
                     $("#pages_div").append(inputs);
                 }
-
+                $("#pages").val(pages);
             })
 
         })
@@ -186,8 +144,8 @@
             <div class="thumbnail">
                 <img src="images/icons/delete.svg" class="img-responsive" alt="通用的占位符缩略图">
                 <div class="caption">
-                    <h3>删除音乐</h3>
-                    <a href="#" class="btn btn-danger" role="button" name="in">
+                    <h3>上传曲谱</h3>
+                    <a href="#" class="btn btn-warning" role="button" name="in">
                         输入
                     </a>
                     <a href="#" class="btn btn-default" role="button">
@@ -307,24 +265,30 @@
 
                     <div class="input-group">
                         <span class="input-group-addon">音乐名</span>
-                        <input type="text" class="form-control" id=""/>
+                        <input type="text" class="form-control" id="" name="name"/>
                     </div>
 
+                </div>
 
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-addon">路径</span>
-                        <input type="text" class="form-control" id=""/>
-                    </div>
-                </div>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon">歌手id</span>
-                        <input type="text" class="form-control" id=""/>
+                        <input type="text" class="form-control" name="sid"/>
                     </div>
                 </div>
 
+                <button type="submit" class="btn btn-default">Submit</button>
+                <button class="btn btn-default" id="back">展开菜单</button>
+            </form>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="container">
+
+            <form action="" method="POST" role="form">
                 <div id="pages_div">
                     <p class="help-block">
                         吉他谱页数
@@ -348,63 +312,26 @@
                         <input type="radio" name="add_music_page_number" value="6" checked> 6
                     </label>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-                <button class="btn btn-default" id="back">展开菜单</button>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">曲谱格式</span>
+                        <input type="text" class="form-control" id="" name="format"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">歌曲id</span>
+                        <input type="text" class="form-control" id="" name="id"/>
+                    </div>
+                </div>
+                <input type="hidden" name="number" id="pages"/>
+                <button type="button" class="btn btn-large btn-block btn-default">提交</button>
+
             </form>
+
         </div>
-
-
     </div>
-</div>
-
-<div class="container">
-    <h3 class="text-success">音乐信息</h3>
-</div>
-
-<div class="container">
-
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>sid</th>
-            <th>number</th>
-            <th>format</th>
-            <th class="text-danger">删除</th>
-            <th class="text-primary">修改</th>
-        </tr>
-        </thead>
-        <tbody id="songs">
-        </tbody>
-    </table>
-
-</div>
-
-
-<div class="container">
-    <h3 class="text-success">歌手信息</h3>
-</div>
-
-
-<div class="container">
-
-    <table class="table table-hover">
-
-        <thead>
-        <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>photo</th>
-            <th class="text-danger">删除</th>
-            <th class="text-primary">修改</th>
-        </tr>
-        </thead>
-
-        <tbody id="singers">
-        </tbody>
-
-    </table>
 
 </div>
 

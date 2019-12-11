@@ -85,6 +85,7 @@ public class SearchController {
     @RequestMapping("/all")
     @ResponseBody
     public Object all(HttpServletRequest request, HttpServletResponse response) {
+
         List<Songs> songsList = songsMapper.selAll();
         List<Singers> singersList = singersMapper.selAll();
         Map<String, Object> map = new HashMap<>();
@@ -92,6 +93,7 @@ public class SearchController {
         map.put("singers", singersList);
         System.out.println("发送了管理员页面请求");
         return map;
+
     }
 
 

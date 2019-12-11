@@ -1,6 +1,7 @@
 package wz.mapper;
 
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import wz.pojo.Songs;
@@ -30,5 +31,9 @@ public interface SongsMapper {
 
     @Delete("delete from songs where id=#{0}")
     int delById(int id);
+
+    //insert into songs values (default, '呵呵', 3, null, null);
+    @Insert("insert into songs values (default, #{0}, #{1}, null, null)")
+    int insSong(String name, int sid);
 
 }
