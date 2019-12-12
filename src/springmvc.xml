@@ -27,6 +27,11 @@
     <!--    <mvc:resources mapping="/bootstrap-3.3.7-dist/css/" location="/bootstrap-3.3.7-dist/css/"/>-->
     <!--    <mvc:resources mapping="/bootstrap-3.3.7-dist/js/" location="/bootstrap-3.3.7-dist/js/"/>-->
 
+    <!-- MultipartResolver 解析器-->
+    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+
+    </bean>
+
     <!-- 放过静态资源 -->
     <mvc:default-servlet-handler/>
 

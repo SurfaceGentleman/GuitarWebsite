@@ -41,4 +41,17 @@ public class SongsService {
     public int delSong(int id) {
         return songsMapper.delById(id);
     }
+
+
+    public int insSong(String name, int sid) {
+        return songsMapper.insSong(name, sid);
+    }
+
+    public int updGuitar(int number, String format, int id) {
+        return songsMapper.updGuitar(number, format, id);
+    }
+
+    public int updSong(String name, int sid, int id) {
+        return songsMapper.updSong(name, sid, id);
+    }
 }

@@ -260,7 +260,7 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <h3 class="text-warning">添加音乐</h3>
 
-            <form role="form">
+            <form role="form" action="/insert_song">
                 <div class="form-group">
 
                     <div class="input-group">
@@ -288,7 +288,7 @@
     <div class="row">
         <div class="container">
 
-            <form action="" method="POST" role="form">
+            <form action="/upload_song" enctype="multipart/form-data" method="POST" role="form">
                 <div id="pages_div">
                     <p class="help-block">
                         吉他谱页数
@@ -316,17 +316,18 @@
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon">曲谱格式</span>
-                        <input type="text" class="form-control" id="" name="format"/>
+                        <input type="text" class="form-control" name="format"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon">歌曲id</span>
-                        <input type="text" class="form-control" id="" name="id"/>
+                        <input type="text" class="form-control" name="id"/>
                     </div>
                 </div>
+                <!-- number可以直接获取 -->
                 <input type="hidden" name="number" id="pages"/>
-                <button type="button" class="btn btn-large btn-block btn-default">提交</button>
+                <button type="submit" class="btn btn-large btn-block btn-default">提交</button>
 
             </form>
 
@@ -335,6 +336,133 @@
 
 </div>
 
+<div class="container" id="change_music">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <h3 class="text-success">修改音乐信息</h3>
+
+            <form role="form" method="get" action="upd_song">
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <span class="input-group-addon">音乐id</span>
+                        <input type="text" class="form-control" id="" name="id"/>
+                    </div>
+
+                </div>
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <span class="input-group-addon">音乐名</span>
+                        <input type="text" class="form-control" id="" name="name"/>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">歌手id</span>
+                        <input type="text" class="form-control" name="sid"/>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-default">Submit</button>
+                <button class="btn btn-default">展开菜单</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="container" id="ins_singer">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <h3 class="text-success">添加歌手</h3>
+
+            <form role="form" method="post" action="ins_singer" enctype="multipart/form-data">
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <span class="input-group-addon">歌手名</span>
+                        <input type="text" class="form-control" id="" name="name"/>
+                    </div>
+
+                </div>
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <span class="input-group-addon">介绍</span>
+                        <input type="text" class="form-control" id="" name="introduce"/>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">照片</span>
+                        <input type="file" class="form-control" name="photo"/>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-default">Submit</button>
+                <button class="btn btn-default">展开菜单</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<div class="container" id="upd_singer">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <h3 class="text-info">修改歌手信息</h3>
+
+            <form role="form" method="post" action="/upd_singer" enctype="multipart/form-data">
+
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <span class="input-group-addon">id</span>
+                        <input type="text" class="form-control" name="id"/>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <span class="input-group-addon">歌手名</span>
+                        <input type="text" class="form-control" name="name"/>
+                    </div>
+
+                </div>
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <span class="input-group-addon">介绍</span>
+                        <input type="text" class="form-control" id="" name="introduce"/>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">照片</span>
+                        <input type="file" class="form-control" name="photo"/>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-default">Submit</button>
+                <button class="btn btn-default">展开菜单</button>
+            </form>
+        </div>
+    </div>
+
+</div>
 
 </body>
 

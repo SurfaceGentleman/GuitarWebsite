@@ -3,7 +3,6 @@ package wz.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import wz.pojo.PageInfo;
 import wz.service.SongsService;
 
@@ -31,6 +30,23 @@ public class SongsController {
     public String delSong(@RequestParam(defaultValue = "0") int id) {
         int result = songsService.delSong(id);
         return "/songs";
+    }
+
+    //插入歌曲
+    @RequestMapping("/insert_song")
+    public String insSong(String name, int sid) {
+        int result = songsService.insSong(name, sid);
+        System.out.println("插入的结果:" + result);
+        return "manager.jsp";
+    }
+
+    //修改歌曲信息
+    @RequestMapping("/upd_song")
+    public String updSong(String name, int sid, int id) {
+        int result = songsService.updSong(name, sid, id);
+        System.out.println("更新歌曲结果:" + result);
+
+        return "manager.jsp";
     }
 
 }

@@ -1,8 +1,6 @@
 package wz.mapper;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import wz.pojo.Singers;
 
 import java.util.List;
@@ -27,4 +25,15 @@ public interface SingersMapper {
 
     @Delete("delete from singers where id=#{0}")
     int delById(int id);
+
+    //插入歌手
+    //    insert into singers
+    //    values (default, '站长', '', '');
+    @Insert("insert into singers values(default, #{0}, #{1}, #{2})")
+    int insSinger(String name, String introduce, String photo);
+
+    //修改歌手信息
+    //update singers set name='wz', introduce='sg', photo=photo where id=12;
+    @Update("update singers set name=#{0}, introduce=#{1}, photo=#{2} where id=#{3}")
+    int updSinger(String name, String introduce, String photo, int id);
 }

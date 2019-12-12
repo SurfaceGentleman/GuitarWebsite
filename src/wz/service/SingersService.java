@@ -1,6 +1,7 @@
 package wz.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import wz.mapper.SingersMapper;
 import wz.pojo.PageInfo;
 import wz.pojo.Singers;
@@ -28,5 +29,13 @@ public class SingersService {
 
     public int delSinger(int id) {
         return singersMapper.delById(id);
+    }
+
+    public int insSinger(String name, String introduce, String fileName) {
+        return singersMapper.insSinger(name, introduce, fileName);
+    }
+
+    public int updSinger(int id, String name, String introduce, String photo) {
+        return singersMapper.updSinger(name, introduce, photo, id);
     }
 }
