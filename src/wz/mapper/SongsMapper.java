@@ -43,4 +43,11 @@ public interface SongsMapper {
     //update songs set name = 'aa', sid = 4, number=number, format=format where id = 5;
     @Update("update songs set name = #{0}, sid = #{1}, number=number, format=format where id = #{2}")
     int updSong(String name, int sid, int id);
+
+    //分页查询
+    List<Songs> selByPageSong(String name, int pageStart, int pageSize);
+    //获取页数
+    //@Select("select count(*) from songs s left join singers on s.sid = singers.id where ")
+    int selPageCount(String name);
+
 }

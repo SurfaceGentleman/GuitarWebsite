@@ -25,4 +25,24 @@
         select * from songs limit #{0}, #{1}
     </select>
 
+    <select id="selByPageSong" resultType="wz.pojo.Songs">
+        select s.id id, s.name name, s.format format, singers.name sname, s.number number from songs s
+        left join singers on s.sid = singers.id
+        <where>
+            <if test="#{0} != null">
+                and s.name like "%"#{0}"%" or singers.name like "%"#{0}"%"
+            </if>
+        </where>
+        limit #{1},#{2}
+    </select>
+
+    <select id="selPageCount" resultType="int">
+        select count(*) from songs s left join singers on s.sid = singers.id
+        <where>
+            <if test="#{0} != null">
+                and s.name like "%"#{0}"%" or singers.name like "%"#{0}"%"
+            </if>
+        </where>
+    </select>
+
 </mapper>

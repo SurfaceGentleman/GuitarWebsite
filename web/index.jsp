@@ -203,9 +203,7 @@
                 <h2 class="text-primary">
                     欢迎访问本站
                 </h2>
-                <p>
-                    本站仅作为个人使用，还望上线后，各位黑客大佬们能高抬贵手，里面除了一些歌曲以及吉他谱之外，什么都没了。
-                </p>
+
                 <p class="text-warning">
                     目前用户相关功能仍处于测试阶段，请直接点击下方按钮，进入首页即可！
                 </p>
@@ -215,7 +213,9 @@
                 <p>
                     <a class="btn btn-success btn-large" href="/main.jsp">进入首页</a>
                 </p>
-
+                <p>
+                    本站仅作为个人使用，还望上线后，各位黑客大佬们能高抬贵手，里面除了一些歌曲以及吉他谱之外，什么都没了。
+                </p>
             </div>
         </div>
     </div>
@@ -232,12 +232,12 @@
                 她那时候还太年轻,不知道所有命运赠予的礼物,早已在暗中标好了价格.
             </p>
             <p>
-                <a class="btn" href="main.jsp">View details »</a>
+                <a class="btn" href="main.jsp">进入首页</a>
             </p>
         </div>
         <div class="col-md-4 column">
             <h2>
-                Who care
+                建设中......
             </h2>
             <p>
                 Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
@@ -245,7 +245,7 @@
                 mollis euismod. Donec sed odio dui.
             </p>
             <p>
-                <a class="btn" href="main.jsp">View details »</a>
+                <a class="btn" href="main.jsp">进入首页</a>
             </p>
         </div>
         <div class="col-md-4 column">
@@ -256,7 +256,7 @@
                 请点击“进入首页”按钮进行访问
             </p>
             <p>
-                <a class="btn" href="main.jsp">View details »</a>
+                <a class="btn" href="main.jsp">进入首页</a>
             </p>
         </div>
 

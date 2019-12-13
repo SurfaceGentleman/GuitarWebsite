@@ -24,6 +24,13 @@
                 interval: 2000
             });
 
+            $("#backMusic").mouseenter(function () {
+                $(this).css({ opacity: .4 });
+            })
+            $("#backMusic").mousedown(function () {
+                $(this).css({ opacity: 1 });
+            })
+            
             $("#call").click(function () {
                 alert("请先在首页绕过前端！");
                 return false;
@@ -92,8 +99,8 @@
     <div class="">
 
     </div>
-    <div class="col-xs-0 col-sm-2 col-md-2 col-lg-2 pull-right">
-        <h2 class=" text-warning">wz.com</h2>
+    <div class="col-xs-0 col-sm-3 col-md-3 col-lg-3 pull-right">
+        <h2 class=" text-warning">SurfaceGentleman.info</h2>
     </div>
 
 </div>
@@ -109,19 +116,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><span class="text-success">wz吉他网</span></a>
+        <a class="navbar-brand" href="#"><span class="text-success">吉他谱分享</span></a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
             <li>
-                <a href="#">施工中</a>
+                <a href="#">建设ing</a>
             </li>
             <li>
-                <a href="#">施工中</a>
+                <a href="#"><span class="text-primary">用户相关功能(正在建设)</span></a>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong
+                <a href="#" class="dropdown-toggle " data-toggle="dropdown"><span class="text-danger">留言板(即将上线)</span><strong
                         class="caret"></strong></a>
                 <ul class="dropdown-menu">
                     <li>
@@ -146,9 +153,9 @@
                 </ul>
             </li>
         </ul>
-        <form class="navbar-form navbar-left" role="search" action="/result" method="post">
+        <form class="navbar-form navbar-left" role="search" action="/result_page" method="post">
             <div class="form-group">
-                <input type="text" name="str" class="form-control" placeholder="请输入歌曲名或歌手名"/>
+                <input type="text" name="name" class="form-control" placeholder="请输入歌曲名或歌手名"/>
             </div>
             <button type="submit" class="btn btn-default">搜索</button>
         </form>
@@ -156,21 +163,22 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a href="#">Link</a>
+                <a href="#">建设ing</a>
             </li>
 
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于我<strong
-                        class="caret"></strong></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <strong><span class="text-primary">关于我</span></strong>
+                    <strong class="caret"></strong></a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="#"><span class="text-primary">进入站长的全民k歌</span></a>
+                        <a href="https://node.kg.qq.com/personal?uid=65949a8622243183"><span class="text-success">进入站长的全民k歌</span></a>
                     </li>
                     <li>
                         <a href="#" id="call"><span class="text-primary">联系站长</span></a>
                     </li>
                     <li>
-                        <a href="#"><span class="text-primary">站长单身，但不谈对象，性取向正常，仍在奋斗中</span></a>
+                        <a href="#"><span class="text-warning">站长单身，但不谈对象，性取向正常，仍在奋斗中</span></a>
                     </li>
                     <li class="divider">
                     </li>
@@ -269,11 +277,11 @@
 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-lg-offset-4  navbar-fixed-bottom">
     <div class="row">
 
-        <div class="media">
+        <div class="media" id="backMusic">
 
             <div class="media-heading text-center">
                 <audio controls="controls" autoplay="autoplay">
-                    <source src="musics/鷺巣詩郎 - never meant to belong.mp3" type="audio/mp3">
+                    <source src="musics/鷺巣詩郎%20-%20will%20of%20the%20heart.mp3" type="audio/mp3">
                 </audio>
             </div>
         </div>

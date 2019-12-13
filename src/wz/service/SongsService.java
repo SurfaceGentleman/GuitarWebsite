@@ -38,6 +38,18 @@ public class SongsService {
 
     }
 
+    public PageInfo showPageSearch(String name, int pageSize, int pageNumber) {
+        PageInfo pi = new PageInfo();
+        int total = songsMapper.selPageCount(name);
+        List<Songs> list = songsMapper.selByPageSong(name, pageSize * (pageNumber - 1), pageSize);
+        pi.setPageNumber(pageNumber);
+        pi.setPageSize(pageSize);
+        pi.setList(list);
+        pi.setTotal(total % pageSize == 0 ? total / pageSize : total / pageSize + 1);
+        System.out.println(pi);
+        return pi;
+    }
+
     public int delSong(int id) {
         return songsMapper.delById(id);
     }

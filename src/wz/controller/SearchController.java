@@ -8,6 +8,7 @@ import wz.mapper.SingersMapper;
 import wz.mapper.SongsMapper;
 import wz.pojo.Singers;
 import wz.pojo.Songs;
+import wz.service.SongsService;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +21,8 @@ public class SearchController {
     private SingersMapper singersMapper;
     @Resource
     private SongsMapper songsMapper;
+    @Resource
+    private SongsService songsService;
 
     @RequestMapping("/search")
     @ResponseBody
@@ -94,6 +97,30 @@ public class SearchController {
         System.out.println("发送了管理员页面请求");
         return map;
 
+    }
+
+
+    @RequestMapping("result_page")
+    public String resultPage(String name, HttpServletRequest req) {
+        req.setAttribute("name", name);
+
+        return "result_test.jsp";
+    }
+
+    @RequestMapping("page_search")
+    @ResponseBody
+    public Object page(@RequestParam(defaultValue = "") String name, @RequestParam(defaultValue = "2") int pageSize, @RequestParam(defaultValue = "1") int pageNumber, HttpServletRequest req) {
+
+
+        Map<String, Object> jsonObject = new HashMap<>();
+
+        jsonObject.put("PageInfo", songsService.showPageSearch(name, pageSize, pageNumber));
+
+        req.setAttribute("name", name);
+        req.setAttribute("pageSize", pageSize);
+        req.setAttribute("pageNummber", pageNumber);
+
+        return jsonObject;
     }
 
 
