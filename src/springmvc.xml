@@ -41,5 +41,13 @@
         <property name="suffix" value=""/>
     </bean>
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/songs"/>
+            <mvc:mapping path="/singers"/>
+            <bean class="wz.interceptor.ManagerInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 
 </beans>

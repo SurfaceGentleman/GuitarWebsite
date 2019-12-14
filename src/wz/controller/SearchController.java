@@ -24,39 +24,41 @@ public class SearchController {
     @Resource
     private SongsService songsService;
 
-    @RequestMapping("/search")
-    @ResponseBody
-    public Object serach(String str, HttpServletRequest request, HttpServletResponse response) {
+    //已废弃
+//    @RequestMapping("/search")
+//    @ResponseBody
+//    public Object serach(String str, HttpServletRequest request, HttpServletResponse response) {
+//
+//        String searchStr = str;
+//        request.setAttribute("str", searchStr);
+//        System.out.println("search处的str：" + searchStr);
+//
+//        List<Songs> songsList = songsMapper.selByName(searchStr);
+//        List<Singers> singersList = singersMapper.selByName(searchStr);
+//        System.out.println(songsList);
+//        System.out.println(singersList);
+//
+//        Map<Object, Object> jsonObject = new HashMap<>();
+//        jsonObject.put("songs", songsList);
+//        jsonObject.put("singers", singersList);
+//        System.out.println(jsonObject);
+//        return jsonObject;
+//
+//    }
 
-        String searchStr = str;
-        request.setAttribute("str", searchStr);
-        System.out.println("search处的str：" + searchStr);
-
-        List<Songs> songsList = songsMapper.selByName(searchStr);
-        List<Singers> singersList = singersMapper.selByName(searchStr);
-        System.out.println(songsList);
-        System.out.println(singersList);
-
-        Map<Object, Object> jsonObject = new HashMap<>();
-        jsonObject.put("songs", songsList);
-        jsonObject.put("singers", singersList);
-        System.out.println(jsonObject);
-        return jsonObject;
-
-    }
-
+    //已废弃
     //将字符串传至前端，由前端使用Ajax请求访问后端
-    @RequestMapping("/result")
-    public String result(String str, HttpServletRequest request, HttpServletResponse response) {
-        String searchStr = (String) request.getParameter("str");
-        System.out.println(searchStr);
-        if (null == searchStr) {
-            searchStr = "";
-        }
-        System.out.println(searchStr);
-        request.setAttribute("str", searchStr);
-        return "result.jsp";
-    }
+//    @RequestMapping("/result")
+//    public String result(String str, HttpServletRequest request, HttpServletResponse response) {
+//        String searchStr = (String) request.getParameter("str");
+//        System.out.println(searchStr);
+//        if (null == searchStr) {
+//            searchStr = "";
+//        }
+//        System.out.println(searchStr);
+//        request.setAttribute("str", searchStr);
+//        return "result.jsp";
+//    }
 
     @RequestMapping("/hot")
     @ResponseBody
@@ -85,31 +87,32 @@ public class SearchController {
 
 
     //选择所有的信息
-    @RequestMapping("/all")
-    @ResponseBody
-    public Object all(HttpServletRequest request, HttpServletResponse response) {
-
-        List<Songs> songsList = songsMapper.selAll();
-        List<Singers> singersList = singersMapper.selAll();
-        Map<String, Object> map = new HashMap<>();
-        map.put("songs", songsList);
-        map.put("singers", singersList);
-        System.out.println("发送了管理员页面请求");
-        return map;
-
-    }
+    //已废弃
+//    @RequestMapping("/all")
+//    @ResponseBody
+//    public Object all(HttpServletRequest request, HttpServletResponse response) {
+//
+//        List<Songs> songsList = songsMapper.selAll();
+//        List<Singers> singersList = singersMapper.selAll();
+//        Map<String, Object> map = new HashMap<>();
+//        map.put("songs", songsList);
+//        map.put("singers", singersList);
+//        System.out.println("发送了管理员页面请求");
+//        return map;
+//
+//    }
 
 
     @RequestMapping("result_page")
     public String resultPage(String name, HttpServletRequest req) {
         req.setAttribute("name", name);
 
-        return "result_test.jsp";
+        return "/search_result.jsp";
     }
 
     @RequestMapping("page_search")
     @ResponseBody
-    public Object page(@RequestParam(defaultValue = "") String name, @RequestParam(defaultValue = "2") int pageSize, @RequestParam(defaultValue = "1") int pageNumber, HttpServletRequest req) {
+    public Object page(@RequestParam(defaultValue = "") String name, @RequestParam(defaultValue = "12") int pageSize, @RequestParam(defaultValue = "1") int pageNumber, HttpServletRequest req) {
 
 
         Map<String, Object> jsonObject = new HashMap<>();

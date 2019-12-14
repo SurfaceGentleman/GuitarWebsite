@@ -11,7 +11,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1600px, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
@@ -30,7 +30,7 @@
             $("#backMusic").mousedown(function () {
                 $(this).css({ opacity: 1 });
             })
-            
+
             $("#call").click(function () {
                 alert("请先在首页绕过前端！");
                 return false;
@@ -61,7 +61,7 @@
                         var singers_name = data["singers"][i]["name"];
                         var singers_id = data["singers"][i]["id"];
                         var singers_photo = data["singers"][i]["photo"];
-                        var dis_singers = "<div class='col-sm-6 col-md-2'><div class='thumbnail'><img src='/images/singers/" + singers_photo + "' class='img-circle'><div class='caption'><h3>" + singers_name + "</h3><p><a href=singer_song?id=" + singers_id + " class='btn btn-success'>查看曲谱</a></p></div></div></div>";
+                        var dis_singers = "<div class='col-sm-6 col-md-2'><div class='thumbnail'><img src='/images/singers/" + singers_photo + "' class='img-circle'><div class='caption'><h3 class='text-center'>" + singers_name + "</h3><p class='text-center'><a href=singer_song?id=" + singers_id + " class='btn btn-success'>查看曲谱</a></p></div></div></div>";
                         $("#singers").append(dis_singers);
                     }
 
@@ -99,7 +99,7 @@
     <div class="">
 
     </div>
-    <div class="col-xs-0 col-sm-3 col-md-3 col-lg-3 pull-right">
+    <div class="col-xs-0 col-sm-4 col-md-4 col-lg-4 pull-right">
         <h2 class=" text-warning">SurfaceGentleman.info</h2>
     </div>
 

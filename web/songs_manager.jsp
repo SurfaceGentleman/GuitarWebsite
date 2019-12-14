@@ -81,7 +81,7 @@
 
 <div class="container">
     <h3 class="text-success">音乐信息</h3>
-    <h5 class="text-danger">(每页显示12条, 共${PageInfo.total}页，当前在第${PageInfo.pageNumber}页)</h5>
+    <h5 class="text-danger">(每页显示${PageInfo.pageSize}条, 共${PageInfo.total}页，当前在第${PageInfo.pageNumber}页)</h5>
 
 </div>
 
