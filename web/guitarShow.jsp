@@ -22,7 +22,7 @@
             var page_number = '<%=request.getAttribute("pages")%>';
             page_number = parseInt(page_number);
             for (var i = 1; i <= page_number; i++) {
-                var path = "/songs/<%=request.getAttribute("id")%>/music/<%=request.getAttribute("id")%>_" + i + ".<%=request.getAttribute("format")%>";
+                var path = "songs/<%=request.getAttribute("id")%>/music/<%=request.getAttribute("id")%>_" + i + ".<%=request.getAttribute("format")%>";
                 $("#pages").append("<img class='img-responsive' src=" + path + ">");
             }
 
@@ -42,7 +42,7 @@
 
     </div>
     <div class="col-xs-0 col-sm-4 col-md-4 col-lg-4 pull-right">
-        <h2 class=" text-warning">SurfaceGentleman.info</h2>
+        <h2 class=" text-warning"><a href="main">SurfaceGentleman.info</a></h2>
     </div>
 
 </div>
@@ -95,7 +95,7 @@
                 </ul>
             </li>
         </ul>
-        <form class="navbar-form navbar-left" role="search" action="/result_page" method="post">
+        <form class="navbar-form navbar-left" role="search" action="result_page" method="post">
             <div class="form-group">
                 <input type="text" name="name" class="form-control" placeholder="请输入歌曲名或歌手名"/>
             </div>

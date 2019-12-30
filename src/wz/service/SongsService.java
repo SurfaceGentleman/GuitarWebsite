@@ -25,7 +25,8 @@ public class SongsService {
         return songsMapper.selBySid(id);
     }
 
-    public PageInfo showPage(int pageSize, int pageNumber) {
+
+    public PageInfo showPageAdmin(int pageSize, int pageNumber) {
         PageInfo pi = new PageInfo();
         int total = songsMapper.selCount();
         List<Songs> list = songsMapper.selByPage(pageSize * (pageNumber - 1), pageSize);
@@ -50,6 +51,7 @@ public class SongsService {
         return pi;
     }
 
+    //以下均为敏感操作，需要日志记录
     public int delSong(int id) {
         return songsMapper.delById(id);
     }

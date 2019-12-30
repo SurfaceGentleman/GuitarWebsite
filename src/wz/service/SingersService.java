@@ -27,6 +27,7 @@ public class SingersService {
         return pi;
     }
 
+    //以下为敏感操作，需要日志记录
     public int delSinger(int id) {
         return singersMapper.delById(id);
     }

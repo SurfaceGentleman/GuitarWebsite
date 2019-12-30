@@ -28,7 +28,7 @@
 <h3 id="status" class="text-danger"></h3>
 <h4 align="center" style="padding-top: 20px">本站后端管理登录</h4>
 <div style="margin: 0 auto; padding-top: 15%">
-    <form action="/admin_login" method="post">
+    <form action="admin_login" method="post">
         <input type="text" name="name"><br>
         <input type="password" name="password"><br>
         <button type="submit">登录</button>

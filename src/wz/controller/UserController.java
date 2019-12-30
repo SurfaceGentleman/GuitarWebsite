@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class UserController {
 
-    @RequestMapping("/login")
+    @RequestMapping("login")
     public String login(String name, String password, String code) {
         System.out.println(name + password + code);
         return "bugLogin.jsp";

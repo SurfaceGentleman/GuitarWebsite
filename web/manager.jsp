@@ -98,7 +98,7 @@
         </a>
     </li>
     <li id="singer">
-        <a href="#"><span class="text-warning glyphicon glyphicon-user">歌手管理</span>
+        <a href="singers"><span class="text-warning glyphicon glyphicon-user">歌手管理</span>
             <span class="badge">singer</span>
         </a>
     </li>
@@ -121,7 +121,6 @@
                     <a href="#" class="btn btn-default" role="button">
                         折叠
                     </a>
-                    </p>
                 </div>
             </div>
         </div>
@@ -136,7 +135,6 @@
                     <a href="#" class="btn btn-default" role="button">
                         折叠
                     </a>
-                    </p>
                 </div>
             </div>
         </div>
@@ -160,8 +158,8 @@
                 <img src="images/icons/search.svg" class="img-responsive" alt="通用的占位符缩略图">
                 <div class="caption">
                     <h3>查询音乐信息</h3>
-                    <a href="#" class="btn btn-info" role="button" name="in">
-                        输入
+                    <a href="/songs" class="btn btn-info" role="button" name="in">
+                        进入
                     </a>
                     <a href="#" class="btn btn-default" role="button">
                         折叠
@@ -260,7 +258,7 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <h3 class="text-warning">添加音乐</h3>
 
-            <form role="form" action="/insert_song">
+            <form role="form" action="insert_song">
                 <div class="form-group">
 
                     <div class="input-group">
@@ -288,7 +286,7 @@
     <div class="row">
         <div class="container">
 
-            <form action="/upload_song" enctype="multipart/form-data" method="POST" role="form">
+            <form action="upload_song" enctype="multipart/form-data" method="POST" role="form">
                 <div id="pages_div">
                     <p class="help-block">
                         吉他谱页数
@@ -421,7 +419,7 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <h3 class="text-info">修改歌手信息</h3>
 
-            <form role="form" method="post" action="/upd_singer" enctype="multipart/form-data">
+            <form role="form" method="post" action="upd_singer" enctype="multipart/form-data">
 
                 <div class="form-group">
 

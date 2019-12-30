@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class GuitarPageController {
-    @RequestMapping("/page")
+    @RequestMapping("page")
     public String page(String id, int pages, String format,HttpServletRequest request){
         System.out.println(id);
         System.out.println(pages);

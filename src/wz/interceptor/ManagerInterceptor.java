@@ -7,14 +7,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ManagerInterceptor implements HandlerInterceptor {
+
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
+
+        System.out.println("执行拦截器");
+
         if (httpServletRequest.getSession().getAttribute("admin") == null) {
-            httpServletResponse.sendRedirect("adminLogin.jsp");
-            httpServletRequest.getSession().setAttribute("status", "请登录管理员账号");
+            //httpServletResponse.sendRedirect("admin");
+            httpServletResponse.sendError(403, "请您歇会(手动微笑)");
             return false;
+        }else {
+            return true;
         }
-        return true;
+
     }
 
     @Override

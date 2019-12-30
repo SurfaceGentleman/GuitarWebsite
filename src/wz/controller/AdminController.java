@@ -17,6 +17,7 @@ public class AdminController {
 
     @RequestMapping("admin_login")
     public String adminLogin(@RequestParam(defaultValue = "") String name, @RequestParam(defaultValue = "") String password, HttpServletRequest req, HttpServletResponse resp) {
+
         Admin admin = new Admin();
         admin.setName(name);
         admin.setPassword(password);
@@ -30,5 +31,7 @@ public class AdminController {
             req.getSession().setAttribute("admin", "true");
             return "manager.jsp";
         }
+
     }
+
 }

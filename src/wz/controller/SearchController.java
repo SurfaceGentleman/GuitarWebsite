@@ -60,7 +60,7 @@ public class SearchController {
 //        return "result.jsp";
 //    }
 
-    @RequestMapping("/hot")
+    @RequestMapping("hot")
     @ResponseBody
     public Object hot() {
         Map<String, Object> json = new HashMap<>();
@@ -71,7 +71,7 @@ public class SearchController {
     }
 
     //直接由后端生成并存入request中
-    @RequestMapping("/singer_song")
+    @RequestMapping("singer_song")
     public String singer_song(@RequestParam(defaultValue = "0") int id, HttpServletRequest request, HttpServletResponse response) {
         if (request.getParameter("id") == null) {
             id = 0;
@@ -107,7 +107,7 @@ public class SearchController {
     public String resultPage(String name, HttpServletRequest req) {
         req.setAttribute("name", name);
 
-        return "/search_result.jsp";
+        return "search_result.jsp";
     }
 
     @RequestMapping("page_search")

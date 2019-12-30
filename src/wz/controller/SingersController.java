@@ -24,7 +24,7 @@ public class SingersController {
     private SingersService singersService;
 
     //数据应该没什么问题
-    @RequestMapping("/singers")
+    @RequestMapping("singers")
     public String singers(@RequestParam(defaultValue = "12") int pageSize, @RequestParam(defaultValue = "1") int pageNumber, HttpServletRequest req) {
         Map<String, Object> map = new HashMap<>();
         PageInfo pi = singersService.showPage(pageSize, pageNumber);
@@ -33,15 +33,15 @@ public class SingersController {
     }
 
     //删除歌手
-    @RequestMapping("/del_singer")
+    @RequestMapping("del_singer")
     public String delSinger(@RequestParam(defaultValue = "0") int id) {
         int result = singersService.delSinger(id);
         System.out.println(result);
-        return "/singers";
+        return "singers";
     }
 
     //添加歌手
-    @RequestMapping("/ins_singer")
+    @RequestMapping("ins_singer")
     public String insSinger(MultipartFile photo, String name, @RequestParam(defaultValue = "") String introduce, HttpServletRequest req) throws IOException {
         //处理文件
         if (photo.getOriginalFilename() == "") {
@@ -64,7 +64,7 @@ public class SingersController {
     }
 
     //修改歌手信息
-    @RequestMapping("/upd_singer")
+    @RequestMapping("upd_singer")
     public String updSinger(int id, MultipartFile photo, String name, @RequestParam(defaultValue = "") String introduce, HttpServletRequest req) throws IOException {
         //处理文件
         if (photo.getOriginalFilename() == "") {

@@ -34,6 +34,16 @@
         <property name="sqlSessionFactoryBeanName" value="factory"/>
     </bean>
 
-
+    <!--    AOP-->
+    <bean class="wz.advice.AdminLoginAfterAdvice" id="adminLoginAfterAdvice"/>
+    <bean class="wz.advice.DataAfterAdvice" id="dataAfterAdvice"/>
+    <aop:config>
+        <aop:pointcut id="adminLogin" expression="execution(* wz.service.AdminService.login(..))"/>
+        <aop:advisor advice-ref="adminLoginAfterAdvice" pointcut-ref="adminLogin"/>
+    </aop:config>
+    <aop:config>
+        <aop:pointcut id="Song" expression="execution(* wz.service.*.*(..))"/>
+        <aop:advisor advice-ref="dataAfterAdvice" pointcut-ref="Song"/>
+    </aop:config>
 
 </beans>

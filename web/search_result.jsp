@@ -18,7 +18,10 @@
             var pageSize = 12;
             var pageNumber = 1;
             var name = '<%=request.getAttribute("name")%>';
-
+            $("#call").click(function () {
+                alert("请先在首页绕过前端！");
+                return false;
+            })
             $.ajax({
                 //
                 url: "page_search",
@@ -32,7 +35,7 @@
                     for (var i = 0; i < data["PageInfo"]["list"].length; i++) {
                         var songs_name = "<td><strong>" + data["PageInfo"]["list"][i]["name"] + "</strong></td>";
                         var songs_sname = "<td>" + data["PageInfo"]["list"][i]["sname"] + "</td>";
-                        var songs_view = "<td><a class='btn btn-primary' href=/page?id=" + data["PageInfo"]["list"][i]["id"] + "&pages=" + data["PageInfo"]['list'][i]['number'] + "&format=" + data["PageInfo"]['list'][i]['format'] + ">查看</a>" + "</td>";
+                        var songs_view = "<td><a class='btn btn-primary' href=page?id=" + data["PageInfo"]["list"][i]["id"] + "&pages=" + data["PageInfo"]['list'][i]['number'] + "&format=" + data["PageInfo"]['list'][i]['format'] + ">查看</a>" + "</td>";
                         var songs_download = "<td><a class='btn btn-success'>下载</a></td>";
                         $("#result").append("<tr>" + songs_name + songs_sname + songs_view + songs_download + "</tr>");
 
@@ -67,7 +70,7 @@
                                 for (var i = 0; i < data["PageInfo"]["list"].length; i++) {
                                     var songs_name = "<td class='text-danger'>" + data["PageInfo"]["list"][i]["name"] + "</td>";
                                     var songs_sname = "<td>" + data["PageInfo"]["list"][i]["sname"] + "</td>";
-                                    var songs_view = "<td><a class='btn btn-primary' href=/page?id=" + data["PageInfo"]["list"][i]["id"] + "&pages=" + data["PageInfo"]['list'][i]['number'] + "&format=" + data["PageInfo"]['list'][i]['format'] + ">查看</a>" + "</td>";
+                                    var songs_view = "<td><a class='btn btn-primary' href=page?id=" + data["PageInfo"]["list"][i]["id"] + "&pages=" + data["PageInfo"]['list'][i]['number'] + "&format=" + data["PageInfo"]['list'][i]['format'] + ">查看</a>" + "</td>";
                                     var songs_download = "<td><a class='btn btn-success'>下载</a></td>";
 
                                     $("#result").append("<tr>" + songs_name + songs_sname + songs_view + songs_download + "</tr>");
@@ -114,7 +117,7 @@
 
     </div>
     <div class="col-xs-0 col-sm-4 col-md-4 col-lg-4 pull-right">
-        <h2 class=" text-warning">SurfaceGentleman.info</h2>
+        <h2 class=" text-warning"><a href="main">SurfaceGentleman.info</a></h2>
     </div>
 
 </div>
@@ -167,7 +170,7 @@
                 </ul>
             </li>
         </ul>
-        <form class="navbar-form navbar-left" role="search" action="/result_page" method="post">
+        <form class="navbar-form navbar-left" role="search" action="result_page" method="post">
             <div class="form-group">
                 <input type="text" name="name" class="form-control" placeholder="请输入歌曲名或歌手名"/>
             </div>
@@ -181,7 +184,7 @@
             </li>
 
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">
                     <strong><span class="text-primary">关于我</span></strong>
                     <strong class="caret"></strong></a>
                 <ul class="dropdown-menu">

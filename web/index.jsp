@@ -20,7 +20,10 @@
     
     <script>
         $(document).ready(function () {
-
+            $("#call").click(function () {
+                alert("请先在首页绕过前端！");
+                return false;
+            })
         })
     </script>
 
@@ -40,7 +43,7 @@
 
     </div>
     <div class="col-xs-0 col-sm-4 col-md-4 col-lg-4 pull-right">
-        <h2 class=" text-warning">SurfaceGentleman.info</h2>
+        <h2 class=" text-warning"><a href="main">SurfaceGentleman.info</a></h2>
     </div>
 
 </div>
@@ -93,7 +96,7 @@
                 </ul>
             </li>
         </ul>
-        <form class="navbar-form navbar-left" role="search" action="/result_page" method="post">
+        <form class="navbar-form navbar-left" role="search" action="result_page" method="post">
             <div class="form-group">
                 <input type="text" name="name" class="form-control" placeholder="请输入歌曲名或歌手名"/>
             </div>
@@ -131,6 +134,7 @@
     </div>
 </nav>
 
+
 <div class="container">
     <div class="row">
 
@@ -141,25 +145,25 @@
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="form-group">
                 <div style="padding: 30px 30px 10px;">
-                    <form class="bs-example bs-example-form" role="form" method="post" action="/login">
+                    <form class="bs-example bs-example-form" role="form" method="post" action="login">
                         <fieldset  id="disable" disabled>
                             <div class="input-group">
                                     <span class="input-group-addon"><span
                                             class="glyphicon glyphicon-user"></span></span>
-                                <input type="text" class="form-control" placeholder="请输入用户名" name="name"/>
+                                <input type="text" class="form-control" placeholder="用户功能还未上线" name="name"/>
                             </div>
                             <br>
                             <div class="input-group">
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-globe"></span>
                                     </span>
-                                <input type="text" class="form-control" placeholder="请输入密码" name="password"/>
+                                <input type="text" class="form-control" placeholder="请直接进入首页" name="password"/>
                             </div>
                             <br>
                             <div class="input-group">
                                     <span class="input-group-addon"><span
                                             class="glyphicon glyphicon-tree-conifer"></span></span>
-                                <input type="text" class="form-control" placeholder="请输入验证码" name="code"/>
+                                <input type="text" class="form-control" placeholder="正在开发中" name="code"/>
                             </div>
                             <br/>
                             <div class="row">
@@ -206,7 +210,7 @@
                     即将上线的功能：用户注册/登录功能，曲谱收藏功能，留言板功能，评论区功能
                 </p>
                 <p>
-                    <a class="btn btn-success btn-large" href="/main">进入首页</a>
+                    <a class="btn btn-success btn-lg" href="main">进入首页</a>
                 </p>
                 <p>
                     本站仅作为个人使用，还望上线后，各位黑客大佬们能高抬贵手，里面除了一些歌曲以及吉他谱之外，什么都没了。
@@ -259,7 +263,8 @@
     </div>
 </div>
 <div class="row bg-primary">
-    <h4 class="text-center">Powered by:<span>SurfaceGentleman</span> All Rights Reserved</h4>
+    <h5 class="text-center" style="color: black;">陕ICP备19025814</h5>
+    <h6 class="text-center">Powered by:<span>SurfaceGentleman</span> All Rights Reserved</h6>
 </div>
 </body>
 

@@ -42,11 +42,22 @@
     </bean>
 
     <mvc:interceptors>
+
         <mvc:interceptor>
+
             <mvc:mapping path="/songs"/>
+            <mvc:mapping path="/del_song"/>
+            <mvc:mapping path="/insert_song"/>
+            <mvc:mapping path="/upd_song"/>
+
             <mvc:mapping path="/singers"/>
+            <mvc:mapping path="/ins_singer"/>
+            <mvc:mapping path="/del_singer"/>
+            <mvc:mapping path="/upd_singer"/>
             <bean class="wz.interceptor.ManagerInterceptor"/>
+
         </mvc:interceptor>
+
     </mvc:interceptors>
 
 

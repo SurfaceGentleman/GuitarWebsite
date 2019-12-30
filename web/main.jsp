@@ -39,7 +39,7 @@
             //处理主页相关数据
             $.ajax({
                 //
-                url: "/hot",
+                url: "hot",
                 data: {},
                 type: "post",
 
@@ -50,8 +50,8 @@
                     for (var i = 0; i < data["songs"].length; i++) {
 
                         var songs_name = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'><b>" + data["songs"][i]["name"] + "</b></div>";
-                        var songs_sname = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>" + "<a href='singer_song?id=" + data["songs"][i]["id"] + "'>"  + data["songs"][i]["sname"] + "</a>" + "</div>";
-                        var songs_view = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'><a href=/page?id=" + data["songs"][i]["id"] + "&pages=" + data['songs'][i]['number'] + "&format=" + data['songs'][i]['format'] + ">查看</a>" + "</div>";
+                        var songs_sname = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>" + "<a class='text-success' href='singer_song?id=" + data["songs"][i]["id"] + "'>"  + data["songs"][i]["sname"] + "</a>" + "</div>";
+                        var songs_view = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'><a href=page?id=" + data["songs"][i]["id"] + "&pages=" + data['songs'][i]['number'] + "&format=" + data['songs'][i]['format'] + ">查看</a>" + "</div>";
                         var songs_download = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'><a >下载</a></div>";
                         $("#songs").append("<div class='text-danger'>" + songs_name + songs_sname + songs_view + songs_download + "</div>");
 
@@ -153,7 +153,7 @@
                 </ul>
             </li>
         </ul>
-        <form class="navbar-form navbar-left" role="search" action="/result_page" method="post">
+        <form class="navbar-form navbar-left" role="search" action="result_page" method="post">
             <div class="form-group">
                 <input type="text" name="name" class="form-control" placeholder="请输入歌曲名或歌手名"/>
             </div>
@@ -208,10 +208,10 @@
                 <!-- 轮播（Carousel）项目 -->
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="images/轮播图/43ce832f60e22653e3721793be6d812f.jpg" alt="First slide">
+                        <img href="" src="images/轮播图/43ce832f60e22653e3721793be6d812f.jpg" alt="First slide">
                     </div>
                     <div class="item">
-                        <img src="images/轮播图/cdf3b58923f9f4e71a78266862c1cd60.jpg" alt="Second slide">
+                        <img href="" src="images/轮播图/cdf3b58923f9f4e71a78266862c1cd60.jpg" alt="Second slide">
                     </div>
                     <div class="item">
                         <img src="images/轮播图/5da9a2977c4d8.jpg" alt="Third slide">
@@ -281,7 +281,7 @@
 
             <div class="media-heading text-center">
                 <audio controls="controls" autoplay="autoplay">
-                    <source src="musics/鷺巣詩郎%20-%20will%20of%20the%20heart.mp3" type="audio/mp3">
+                    <source src="musics/鷺巣詩郎-Will Of The Heart.mp3" type="audio/mp3">
                 </audio>
             </div>
         </div>
@@ -292,7 +292,8 @@
 
 <br/>
 <div class="row bg-primary">
-    <h4 class="text-center">Powered by:<span>SurfaceGentleman</span> All Rights Reserved</h4>
+    <h5 class="text-center" style="color: black;">陕ICP备19025814</h5>
+    <h6 class="text-center">Powered by:<span>SurfaceGentleman</span> All Rights Reserved</h6>
 </div>
 </body>
 
