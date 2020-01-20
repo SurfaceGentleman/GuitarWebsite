@@ -37,13 +37,39 @@
     <!--    AOP-->
     <bean class="wz.advice.AdminLoginAfterAdvice" id="adminLoginAfterAdvice"/>
     <bean class="wz.advice.DataAfterAdvice" id="dataAfterAdvice"/>
+    <bean class="wz.advice.UserLoginAfterAdvice" id="loginAfterAdvice"/>
+    <bean class="wz.advice.UserModifyAfterAdvice" id="userModifyAfterAdvice"/>
+    <bean class="wz.advice.UserRegAfterAdvice" id="userRegAfterAdvice"/>
+    <bean class="wz.advice.MessageAddAfterAdvice" id="messageAddAfterAdvice"/>
+
     <aop:config>
         <aop:pointcut id="adminLogin" expression="execution(* wz.service.AdminService.login(..))"/>
         <aop:advisor advice-ref="adminLoginAfterAdvice" pointcut-ref="adminLogin"/>
     </aop:config>
+
     <aop:config>
-        <aop:pointcut id="Song" expression="execution(* wz.service.*.*(..))"/>
-        <aop:advisor advice-ref="dataAfterAdvice" pointcut-ref="Song"/>
+        <aop:pointcut id="data" expression="execution(* wz.service.*.*(..))"/>
+        <aop:advisor advice-ref="dataAfterAdvice" pointcut-ref="data"/>
     </aop:config>
+
+    <aop:config>
+        <aop:pointcut id="userLogin" expression="execution(* wz.service.UsersService.UserLogin(..)))"/>
+        <aop:advisor advice-ref="loginAfterAdvice" pointcut-ref="userLogin"/>
+    </aop:config>
+    <aop:config>
+        <aop:pointcut id="userReg" expression="execution(* wz.service.UsersService.insUsers(..))"/>
+        <aop:advisor advice-ref="userRegAfterAdvice" pointcut-ref="userReg"/>
+    </aop:config>
+    <aop:config>
+        <aop:pointcut id="userModify" expression="execution(* wz.service.UsersService.updUser(..))"/>
+        <aop:advisor advice-ref="userModifyAfterAdvice" pointcut-ref="userModify"/>
+    </aop:config>
+    <aop:config>
+        <aop:pointcut id="messAdd" expression="execution(* wz.service.MessageService.insMessage(..))"/>
+        <aop:advisor advice-ref="messageAddAfterAdvice" pointcut-ref="messAdd"/>
+    </aop:config>
+
+
+
 
 </beans>

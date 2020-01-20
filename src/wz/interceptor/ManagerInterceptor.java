@@ -14,7 +14,6 @@ public class ManagerInterceptor implements HandlerInterceptor {
         System.out.println("执行拦截器");
 
         if (httpServletRequest.getSession().getAttribute("admin") == null) {
-            //httpServletResponse.sendRedirect("admin");
             httpServletResponse.sendError(403, "请您歇会(手动微笑)");
             return false;
         }else {

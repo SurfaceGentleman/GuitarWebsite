@@ -7,6 +7,9 @@ import java.util.List;
 
 public interface SongsMapper {
 
+    @Select("select * from songs where id = #{0}")
+    Songs selById(int id);
+
     //选出歌曲信息（包含歌手名）
     List<Songs> selBySid(int id);
 

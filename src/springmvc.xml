@@ -29,7 +29,7 @@
 
     <!-- MultipartResolver 解析器-->
     <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
-
+        <property name="maxUploadSize" value="20480000"/>
     </bean>
 
     <!-- 放过静态资源 -->
@@ -60,5 +60,13 @@
 
     </mvc:interceptors>
 
+    <!-- 异常解析器-->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver" id="exceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">/error.jsp</prop>
+            </props>
+        </property>
+    </bean>
 
 </beans>

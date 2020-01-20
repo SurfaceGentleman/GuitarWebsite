@@ -56,7 +56,6 @@ public class SongsService {
         return songsMapper.delById(id);
     }
 
-
     public int insSong(String name, int sid) {
         return songsMapper.insSong(name, sid);
     }

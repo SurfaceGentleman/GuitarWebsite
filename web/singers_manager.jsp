@@ -9,7 +9,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>歌手管理</title>
     <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="bootstrap-3.3.7-dist/js/jQuery.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>

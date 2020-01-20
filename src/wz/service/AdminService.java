@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 
 @Service
 public class AdminService {
+
     @Resource
     private AdminMapper adminMapper;
 
