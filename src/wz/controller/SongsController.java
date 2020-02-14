@@ -29,7 +29,7 @@ public class SongsController {
     @RequestMapping("del_song")
     public String delSong(@RequestParam(defaultValue = "0") int id) {
         int result = songsService.delSong(id);
-        return "songs";
+        return "redirect:songs";
     }
 
     //插入歌曲
@@ -37,7 +37,7 @@ public class SongsController {
     public String insSong(String name, int sid) {
         int result = songsService.insSong(name, sid);
         System.out.println("插入的结果:" + result);
-        return "manager.jsp";
+        return "redirect:manager.jsp";
     }
 
     //修改歌曲信息
@@ -46,7 +46,7 @@ public class SongsController {
         int result = songsService.updSong(name, sid, id);
         System.out.println("更新歌曲结果:" + result);
 
-        return "manager.jsp";
+        return "redirect:manager.jsp";
     }
 
 

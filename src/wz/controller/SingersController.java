@@ -37,7 +37,7 @@ public class SingersController {
     public String delSinger(@RequestParam(defaultValue = "0") int id) {
         int result = singersService.delSinger(id);
         System.out.println(result);
-        return "singers";
+        return "redirect:singers";
     }
 
     //添加歌手
@@ -60,7 +60,7 @@ public class SingersController {
         //文件已处理完毕
         int result = singersService.insSinger(name, introduce, fileName);
 
-        return "manager.jsp";
+        return "redirect:manager.jsp";
     }
 
     //修改歌手信息
@@ -78,7 +78,7 @@ public class SingersController {
         //文件已处理完毕
         singersService.updSinger(id, name, introduce, fileName);
 
-        return "manager.jsp";
+        return "redirect:manager.jsp";
     }
 
 

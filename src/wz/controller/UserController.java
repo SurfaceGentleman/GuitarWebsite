@@ -26,26 +26,13 @@ public class UserController {
     @Resource
     private UsersService usersService;
 
-    //跳转页面
-    @RequestMapping("go_reg")
-    public String goReg() {
-        return "reg.jsp";
-    }
 
-    @RequestMapping("go_modify")
-    public String goModify(HttpServletRequest request) {
-        if (request.getSession().getAttribute("user") == null) {
-            request.setAttribute("error", "请先登录！");
-            return "error.jsp";
-        }
-        return "modify.jsp";
-    }
 
 
     @RequestMapping("LogOut")
     public String userQuit(HttpServletRequest request) {
         request.getSession().setAttribute("user", null);
-        return "index.jsp";
+        return "redirect:/";
     }
 
     //注册功能
@@ -106,7 +93,7 @@ public class UserController {
         }
 
 
-        return "main.jsp";
+        return "redirect:main";
     }
 
     @RequestMapping("getVerifyCode")

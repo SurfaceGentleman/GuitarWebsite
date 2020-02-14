@@ -21,10 +21,6 @@
             var pageSize = 12;
             var pageNumber = 1;
             var name = '<%=request.getAttribute("name")%>';
-            $("#call").click(function () {
-                alert("请先在首页绕过前端！");
-                return false;
-            })
             $.ajax({
                 //
                 url: "page_search",
@@ -46,16 +42,17 @@
 
                     for (var i = 1; i <= data["PageInfo"]["total"]; i++) {
                         if (1 == i) {
-                            $("#page").append("<li class='active'><a href='#'>" + i + "</a></li>");
+                            $("#page").append("<li class='active hehe'><a href='#'>" + i + "</a></li>");
                         } else {
-                            $("#page").append("<li><a href='#'>" + i + "</a></li>");
+                            $("#page").append("<li class='hehe'><a href='#'>" + i + "</a></li>");
                         }
 
                     }
                     //$("#current").text("共" + data["PageInfo"]["total"] + "页");
                     $("#current").html("共<big class='text-warning'>" + data["PageInfo"]["total"] + "</big>页");
-                    //显示分页菜单
-                    $("ul li").click(function () {
+
+                    //分页菜单
+                    $(".hehe").click(function () {
                         pageNumber = $(this).text();
                         $(this).addClass('active');
                         $(this).siblings().removeClass('active');
@@ -71,11 +68,10 @@
                             success: function (data) {
                                 $("#result").empty();
                                 for (var i = 0; i < data["PageInfo"]["list"].length; i++) {
-                                    var songs_name = "<td class='text-danger'>" + data["PageInfo"]["list"][i]["name"] + "</td>";
+                                    var songs_name = "<td><strong>" + data["PageInfo"]["list"][i]["name"] + "</strong></td>";
                                     var songs_sname = "<td>" + data["PageInfo"]["list"][i]["sname"] + "</td>";
                                     var songs_view = "<td><a class='btn btn-primary' href=page?id=" + data["PageInfo"]["list"][i]["id"] + "&pages=" + data["PageInfo"]['list'][i]['number'] + "&format=" + data["PageInfo"]['list'][i]['format'] + ">查看</a>" + "</td>";
                                     var songs_download = "<td><a class='btn btn-warning' href='bookins?sid="  +data["PageInfo"]["list"][i]["id"] + "'>收藏</a></td>";
-
                                     $("#result").append("<tr>" + songs_name + songs_sname + songs_view + songs_download + "</tr>");
                                 }
                                 $("#page_info").html("(每页显示" + pageSize + "条，共" + data["PageInfo"]["total"] +"页，当前在第"+ pageNumber +"页)");

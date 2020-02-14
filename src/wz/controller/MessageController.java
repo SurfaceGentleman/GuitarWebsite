@@ -35,7 +35,7 @@ public class MessageController {
         Date date = new Date();
         System.out.println(date);
         messageService.insMessage(user.getId(), message, date, bid);
-        return "/mess/show";
+        return "redirect:/mess/show";
     }
 
     //test

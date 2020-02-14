@@ -32,10 +32,6 @@
                 $(this).css({opacity: 1});
             })
 
-            $("#call").click(function () {
-                alert("请先在首页绕过前端！");
-                return false;
-            })
 
             //处理主页相关数据
             $.ajax({
@@ -281,14 +277,13 @@
             <div class="well">
                 <h3 class="text-success">关于本站</h3>
                 <p class="lead">
-                    本站的前端，后端，数据库模块均由自己编写。若使用时遇到了问题,或者有改进意见,欢迎到<span class="text-danger">留言板</span>反馈，站长联系方式在菜单栏中。
+                    本站的前端，后端，数据库模块均由本人编写。若使用时遇到了问题,或者有改进意见,欢迎到<a href="/mess/show" class="text-danger">留言板</a>反馈，站长联系方式在菜单栏中。
                 </p>
                 <blockquote>
                     <p>
                         万分感谢帮忙提供UI建议,功能测试,鼓励我的大伙伴们。
                     </p>
                 </blockquote>
-
             </div>
 
         </div>

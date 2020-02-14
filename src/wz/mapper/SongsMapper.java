@@ -15,8 +15,14 @@ public interface SongsMapper {
 
     List<Songs> selByName(@Param("name") String name);
 
+    //选取热门歌曲
     @Select("select s.id id, s.name name, s.format format, singers.name sname, s.number number from songs s left join singers on s.sid = singers.id limit 13")
     List<Songs> selHot();
+
+    //选取新歌曲
+    @Select("select s.id id, s.name name, s.format format, singers.name sname, s.number number from songs s left join singers on s.sid = singers.id limit 5")
+    List<Songs> selNew();
+
 
     //选择所有
     @Select("select * from songs")

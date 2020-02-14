@@ -31,5 +31,19 @@ public class JspController {
 
     }
 
+    //跳转页面
+    @RequestMapping("go_reg")
+    public String goReg() {
+        return "reg.jsp";
+    }
+
+    @RequestMapping("go_modify")
+    public String goModify(HttpServletRequest request) {
+        if (request.getSession().getAttribute("user") == null) {
+            request.setAttribute("error", "请先登录！");
+            return "error.jsp";
+        }
+        return "modify.jsp";
+    }
 
 }

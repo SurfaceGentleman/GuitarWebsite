@@ -246,36 +246,35 @@
                 欢迎给站长留言哦！
             </p>
             <p>
-                我深深地恋慕着你，甚至超出了自己的想象，因此每当遇见你，便陷入窒息般的痛苦中
+                若您在使用过程中出现了问题，或者有反馈建议，欢迎来这里留言哦！ 用户信息修改方法：点击上方菜单栏（移动端菜单栏会收缩）中的“修改个人信息”即可修改。点击右上角网址可以回到主页
             </p>
             <p>
-                <a class="btn" href="main">进入主页</a>
+                <a class="btn" href="/mess/show">进入留言板</a>
             </p>
         </div>
         <div class="col-md-4 column">
             <h2>
-                最新吉他谱
+                热门吉他谱
             </h2>
             <p>
                 请点击“进入首页”按钮进行访问
             </p>
             <p>
+                后续还将上线更多内容，欢迎收藏与访问。本人会不时的上传曲谱
+            </p>
+            <p>
                 <a class="btn" href="main">进入主页</a>
             </p>
         </div>
         <div class="col-md-4 column">
             <h2>
-                茨威格《断头王后》
+                Will of the Heart - 鷺巣詩郎
             </h2>
             <p>
-                She was still too young to know that life never gives anything for nothing, and that a price is always
-                exacted for what fate bestows.
+                心之意志
             </p>
             <p>
-                她那时候还太年轻,不知道所有命运赠予的礼物,早已在暗中标好了价格.
-            </p>
-            <p>
-                <a class="btn" href="main">进入主页</a>
+                <a href="/musics/鷺巣詩郎-Will%20Of%20The%20Heart.mp3">这是站长的心声</a>
             </p>
         </div>
     </div>
